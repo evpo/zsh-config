@@ -33,6 +33,10 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=240
 # Bind ^D to accept word in autosuggestions
 bindkey '^d' vi-forward-blank-word
 
+# Use other keys for navigation
+bindkey 'jk' vi-cmd-mode
+bindkey 'jj' vi-forward-blank-word
+
 # Autocompletion
 zstyle ':completion:*' menu select
 
