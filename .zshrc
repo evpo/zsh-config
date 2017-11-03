@@ -46,8 +46,18 @@ function zle-line-init zle-keymap-select {
 #    viins|main) print -n '\e]12;white\a' ;;
     vicmd) printf "\033[2 q" ;;
     viins|main) printf "\033[6 q" ;;
-esac
+  esac
+}
+
+function zle-line-finish
+{
+  printf "\033[2 q"
 }
 
 zle -N zle-line-init
+zle -N zle-line-finish
 zle -N zle-keymap-select
+
+# Enable Ctrl-S work
+stty ixany
+stty ixoff -ixon
