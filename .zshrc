@@ -26,7 +26,28 @@ promptinit
 prompt walters
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export TERM=screen-256color
+
+# Color for suggestions
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=240
+
+# Bind ^D to accept word in autosuggestions
+bindkey '^d' vi-forward-blank-word
 
 # Autocompletion
 zstyle ':completion:*' menu select
+
+# Show vi mode
+function zle-line-init zle-keymap-select {
+  case $KEYMAP in
+#    vicmd) print -rn -- $terminfo[cvvis];; # block cursor
+#    viins|main) print -rn -- $terminfo[cnorm];; # less visible cursor
+
+#    vicmd) print -n '\e]12;blue\a' ;;
+#    viins|main) print -n '\e]12;white\a' ;;
+    vicmd) printf "\033[2 q" ;;
+    viins|main) printf "\033[6 q" ;;
+esac
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
