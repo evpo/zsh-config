@@ -65,3 +65,6 @@ zle -N zle-keymap-select
 # Enable Ctrl-S work
 stty ixany
 stty ixoff -ixon
+
+# Load local zshrc if it exists. For addition of specifics to this host only
+test -s ~/.loczshrc && . ~/.loczshrc || true
