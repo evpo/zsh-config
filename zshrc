@@ -67,4 +67,4 @@ stty ixany
 stty ixoff -ixon
 
 # Load local zshrc if it exists. For addition of specifics to this host only
-test -s ~/.loczshrc && . ~/.loczshrc || true
+test -s ~/.localzshrc && . ~/.localzshrc || true
