@@ -68,3 +68,6 @@ stty ixoff -ixon
 
 # Load local zshrc if it exists. For addition of specifics to this host only
 test -s ~/.localzshrc && . ~/.localzshrc || true
+
+# Enable CTRL-R
+bindkey "^R" history-incremental-pattern-search-backward
