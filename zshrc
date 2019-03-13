@@ -71,3 +71,12 @@ test -s ~/.localzshrc && . ~/.localzshrc || true
 
 # Enable CTRL-R
 bindkey "^R" history-incremental-pattern-search-backward
+
+function altf
+{
+    if [[ $# != 1 ]]; then
+        echo "Usage: altf <pane_number>"
+        return
+    fi
+    tmux send-keys -t $1 -- "cd ${PWD}" Enter
+}
