@@ -80,3 +80,14 @@ function altf
     fi
     tmux send-keys -t $1 -- "cd ${PWD}" Enter
 }
+
+function clip-path
+{
+    if [[ $# != 1 ]]; then
+        echo "Usage: clip-path <path>"
+        return
+    fi
+    local text="${PWD}/${1}"
+    echo -n "$text" | xclip -selection clipboard
+    echo "$text copied"
+}
