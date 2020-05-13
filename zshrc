@@ -94,6 +94,6 @@ function clip-path
 
 precmd()
 {
-    local size_str=$(df -h --output=iavail . | tail -n 1 | sed -e "s/ //g")
+    local size_str=$(df -h --output=avail . | tail -n 1 | sed -e "s/ //g")
     tmux set -qg status-right "#h Free:${size_str}"
 }
