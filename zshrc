@@ -91,3 +91,9 @@ function clip-path
     echo -n "$text" | xclip -selection clipboard
     echo "$text copied"
 }
+
+precmd()
+{
+    local size_str=$(df -h --output=iavail . | tail -n 1 | sed -e "s/ //g")
+    tmux set -qg status-right "#h Free:${size_str}"
+}
